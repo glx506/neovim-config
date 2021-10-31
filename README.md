@@ -38,10 +38,20 @@ $ cd ~/.config/nvim/bundle
 $ git clone *Dependency list
 ```
 + [*Dependency list](#dependency)
-+ Pyright:
++ Pyright (Python LSP Server):
 ```bash
 $ sudo apt-get update
 $ sudo apt-get install nodejs
 $ sudo apt-get install npm
 $ npm install --global pyright
 ```
++ Denols (JavaScript LSP Server):
+```bash
+$ curl -fsSL https://deno.land/x/install/install.sh | sh
+# If you are using zsh + oh-my-zsh add to .zshrc:
+```
+```vim
+export DENO_INSTALL="/home/UsenName/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+```
+
