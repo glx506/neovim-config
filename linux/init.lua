@@ -7,7 +7,7 @@
 -- \__, |_/_/\_\____/ \___/ \___/                            --
 --  __/ |                                                    --
 -- |___/                                                     --
--- Last update:29.10.2021                                    --
+-- Last update:30.10.2021                                    --
 -- init.lua configuration file for NeoVIM                    --
 -- Configured for: neovim (Linux x64)                        --
 ---------------------------------------------------------------
@@ -35,8 +35,6 @@ vim.o.showmatch = true -- Highlight matching brackets (), [] and {}.
 vim.cmd [[set mps+=<:>]] -- Matching brackets highlighting <>.
 vim.o.showtabline = 0 -- Disable tabline.
 vim.o.scrolloff = 7 -- Number of lines after the cursor when scrolling.
--- vim.o.guifont = "Anonymice Nerd Font:h12" -- Anonymice Nerd Font (https://www.nerdfonts.com/font-downloads).
--- vim.cmd [[map! <S-Insert> <C-R>+]] -- Shift+Insert (Enable).
 ------------------------------------------------------------------------------------------------------------------------
 -- Smart Tab:
 vim.o.tabstop = 4 -- The number of spaces by which the tab character appears in the text.
@@ -87,6 +85,10 @@ vim.cmd [[let g:airline_powerline_fonts = 1]]
 ------------------------------------------------------------------------------------------------------------------------
 -- Python-Syntax:
 vim.cmd [[let g:python_highlight_all = 1]]
+------------------------------------------------------------------------------------------------------------------------
+-- JavaScript Syntax:
+vim.cmd [[let g:vim_jsx_pretty_colorful_config = 1]]
+vim.cmd [[let g:yats_host_keyword = 1]]
 ------------------------------------------------------------------------------------------------------------------------
 -- NERDTree:
 vim.cmd [[let NERDTreeShowHidden=1]]
@@ -186,7 +188,8 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
 end
-
+------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 local servers = { 'pyright' }
