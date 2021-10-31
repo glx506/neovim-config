@@ -35,6 +35,7 @@ vim.o.showmatch = true -- Highlight matching brackets (), [] and {}.
 vim.cmd [[set mps+=<:>]] -- Matching brackets highlighting <>.
 vim.o.showtabline = 0 -- Disable tabline.
 vim.o.scrolloff = 7 -- Number of lines after the cursor when scrolling.
+vim.cmd [[nnoremap ,<space> :nohlsearch<CR>]] -- Disable search result highlighting (, space bar)
 ------------------------------------------------------------------------------------------------------------------------
 -- Smart Tab:
 vim.o.tabstop = 4 -- The number of spaces by which the tab character appears in the text.
@@ -192,7 +193,7 @@ end
 ------------------------------------------------------------------------------------------------------------------------
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright' }
+local servers = { 'pyright', 'denols' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
