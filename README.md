@@ -12,6 +12,10 @@
 + https://github.com/ryanoasis/vim-devicons.git
 + https://github.com/vim-airline/vim-airline.git
 + https://github.com/vim-python/python-syntax.git
++ https://github.com/HerringtonDarkholme/yats.vim.git
++ https://github.com/MaxMEllon/vim-jsx-pretty.git
++ https://github.com/jiangmiao/auto-pairs.git
+
 ---
 ## Configuration:
 ### Linux (Ubuntu, Debian):
@@ -31,8 +35,9 @@ $ md -p ~/.config/nvim/autoload ~/.config/nvim/bundle
 $ curl -LSso ~/.config/nvim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 $ mv init.lua ~/.config/nvim
 $ cd ~/.config/nvim/bundle
+$ git clone *Dependency list
 ```
-+ $ git clone [dependency](#dependency)
++ [*Dependency list](#dependency)
 + Pyright:
 ```bash
 $ sudo apt-get update
