@@ -7,7 +7,7 @@
 -- \__, |_/_/\_\____/ \___/ \___/                            --
 --  __/ |                                                    --
 -- |___/                                                     --
--- Last update:29.10.2021                                    --
+-- Last update:03.11.2021                                    --
 -- init.lua configuration file for NeoVIM                    --
 -- Configured for: neovim-qt (Win 10 x64)                    --
 ---------------------------------------------------------------
@@ -39,11 +39,12 @@ vim.o.guifont = "Anonymice Nerd Font:h12" -- Anonymice Nerd Font (https://www.ne
 vim.cmd [[map! <S-Insert> <C-R>+]] -- Shift+Insert (Enable).
 ------------------------------------------------------------------------------------------------------------------------
 -- Smart Tab:
-vim.o.tabstop = 4 -- The number of spaces by which the tab character appears in the text.
-vim.o.shiftwidth = 4 -- Adjusting the indentation width in the spaces added by the >> and << commands.
-vim.o.smarttab = true -- Adding an indent whose width corresponds to shiftwidth.
-vim.o.expandtab = true -- Put Tab with spaces.
-vim.o.softtabstop = 4 -- Number of spaces in Tab.
+-- For JavaScript:
+vim.cmd [[autocmd Filetype javascript setlocal ts=2 sw=2 sts=2 smarttab expandtab]]
+-- For Lua:
+vim.cmd [[autocmd Filetype lua setlocal ts=2 sw=2 sts=2 smarttab expandtab]]
+-- For Python:
+vim.cmd [[autocmd Filetype python setlocal ts=4 sw=4 sts=4 smarttab expandtab]]
 ------------------------------------------------------------------------------------------------------------------------
 -- Search:
 vim.o.ignorecase = true -- Searching without case-sensitive characters.
@@ -84,10 +85,6 @@ vim.cmd [[map <F11> :emenu Spell.<TAB>]]
 vim.cmd [[let g:airline_theme='dracula']]
 vim.cmd [[let g:airline_powerline_fonts = 1]]
 -- Download "Anonymice Nerd Font" (https://www.nerdfonts.com/font-downloads) or set "airline_powerline_fonts = 0".
-------------------------------------------------------------------------------------------------------------------------
--- Asociation of files with highlighting:
--- Asociation of *.log files for syntax highlighting.
-vim.cmd [[au BufRead,BufNewFile *.log set filetype=log]]
 ------------------------------------------------------------------------------------------------------------------------
 -- Python-Syntax:
 vim.cmd [[let g:python_highlight_all = 1]]
@@ -193,7 +190,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright' }
+local servers = { 'pyright', 'denols' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
