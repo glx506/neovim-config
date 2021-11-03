@@ -11,6 +11,8 @@
 -- init.lua configuration file for NeoVIM                    --
 -- Configured for: neovim-qt (Win 10 x64)                    --
 ---------------------------------------------------------------
+local map = vim.api.nvim_set_keymap
+
 vim.cmd [[set shada="NONE"]] -- Disable shada file.
 vim.cmd [[set viminfo="NONE"]] -- Disable viminfo file.
 vim.cmd [[set noswapfile]] -- Disable swap.
@@ -36,15 +38,24 @@ vim.cmd [[set mps+=<:>]] -- Matching brackets highlighting <>.
 vim.o.showtabline = 0 -- Disable tabline.
 vim.o.scrolloff = 7 -- Number of lines after the cursor when scrolling.
 vim.o.guifont = "Anonymice Nerd Font:h12" -- Anonymice Nerd Font (https://www.nerdfonts.com/font-downloads).
-vim.cmd [[map! <S-Insert> <C-R>+]] -- Shift+Insert (Enable).
+map('!', '<S-Insert>', '<C-R>+', {noremap = true, silent = true}) -- Shift+Insert (Enable).
+vim.o.cursorline = true -- Light the cursor line
+------------------------------------------------------------------------------------------------------------------------
+-- Hotkeys:
+-- Only hjkl, Hardcore! ;):
+map('', '<up>', ':echoe "Use k"<CR>', {noremap = true, silent = false})
+map('', '<down>', ':echoe "Use j"<CR>', {noremap = true, silent = false})
+map('', '<left>', ':echoe "Use h"<CR>', {noremap = true, silent = false})
+map('', '<right>', ':echoe "Use l"<CR>', {noremap = true, silent = false})
 ------------------------------------------------------------------------------------------------------------------------
 -- Smart Tab:
--- For JavaScript:
-vim.cmd [[autocmd Filetype javascript setlocal ts=2 sw=2 sts=2 smarttab expandtab]]
--- For Lua:
-vim.cmd [[autocmd Filetype lua setlocal ts=2 sw=2 sts=2 smarttab expandtab]]
--- For Python:
-vim.cmd [[autocmd Filetype python setlocal ts=4 sw=4 sts=4 smarttab expandtab]]
+vim.o.tabstop = 4 -- The number of spaces by which the tab character appears in the text.
+vim.o.shiftwidth = 4 -- Adjusting the indentation width in the spaces added by the >> and << commands.
+vim.o.softtabstop = 4 -- Number of spaces in Tab.
+vim.o.smarttab = true -- Adding an indent whose width corresponds to shiftwidth.
+vim.o.expandtab = true -- Put Tab with spaces.
+-- For JavaScript, Lua, html, text, Markdown, CSS - Set 2 space:
+vim.cmd [[autocmd Filetype javascript,lua,html,text,markdown,css setlocal ts=2 sw=2 sts=2 smarttab expandtab]]
 ------------------------------------------------------------------------------------------------------------------------
 -- Search:
 vim.o.ignorecase = true -- Searching without case-sensitive characters.
@@ -72,14 +83,14 @@ vim.cmd [[menu Encoding.windows-1251 :e ++enc=cp1251 ++ff=dos<cr>]]
 vim.cmd [[menu Encoding.cp866 :e ++enc=cp866 ++ff=dos<cr>]]
 vim.cmd [[menu Encoding.utf-8 :e ++enc=utf8 ++ff=dos<cr>]]
 vim.cmd [[menu Encoding.koi8-u :e ++enc=koi8-u ++ff=dos<cr>]]
-vim.cmd [[map <F12> :emenu Encoding.<TAB>]]
+map('n', '<F12>', ':emenu Encoding.<TAB>', {noremap = true, silent = true})
 ------------------------------------------------------------------------------------------------------------------------
 -- Spelling:
 vim.cmd [[set wildmenu]]
 vim.cmd [[set wcm=<Tab>]]
 vim.cmd [[menu Spell.Spell[RU] :set spell spelllang=ru<cr>]]
 vim.cmd [[menu Spell.Spell[EN] :set spell spelllang=en<cr>]]
-vim.cmd [[map <F11> :emenu Spell.<TAB>]]
+map('n', '<F11>', ':emenu Spell.<TAB>', {noremap = true, silent = true})
 ------------------------------------------------------------------------------------------------------------------------
 --Airline:
 vim.cmd [[let g:airline_theme='dracula']]
@@ -93,9 +104,9 @@ vim.cmd [[let g:python_highlight_all = 1]]
 vim.cmd [[let NERDTreeShowHidden=1]]
 vim.cmd [[let NERDTreeQuitOnOpen=1]]
 vim.cmd [[let NERDTreeNaturalSort=1]]
-vim.cmd [[nmap <F10> :NERDTreeToggle C:<cr>]]
-vim.cmd [[vmap <F10> <esc>:NERDTreeToggle C:<cr>]]
-vim.cmd [[imap <F10> <esc>:NERDTreeToggle C:<cr>]]
+map('n', '<F10>', ':NERDTreeToggle C:<cr>', {noremap = true, silent = true})
+map('v', '<F10>', '<esc>:NERDTreeToggle C:<cr>', {noremap = true, silent = true})
+map('i', '<F10>', '<esc>:NERDTreeToggle C:<cr>', {noremap = true, silent = true})
 ------------------------------------------------------------------------------------------------------------------------
 -- Configuration autocomplete:
 -- Set completeopt to have a better completion experience
