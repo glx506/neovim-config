@@ -7,10 +7,12 @@
 -- \__, |_/_/\_\____/ \___/ \___/                            --
 --  __/ |                                                    --
 -- |___/                                                     --
--- Last update:30.10.2021                                    --
+-- Last update:04.11.2021                                    --
 -- init.lua configuration file for NeoVIM                    --
 -- Configured for: neovim (Linux x64)                        --
 ---------------------------------------------------------------
+local map = vim.api.nvim_set_keymap
+
 vim.cmd [[set shada="NONE"]] -- Disable shada file.
 vim.cmd [[set viminfo="NONE"]] -- Disable viminfo file.
 vim.cmd [[set noswapfile]] -- Disable swap.
@@ -35,14 +37,23 @@ vim.o.showmatch = true -- Highlight matching brackets (), [] and {}.
 vim.cmd [[set mps+=<:>]] -- Matching brackets highlighting <>.
 vim.o.showtabline = 0 -- Disable tabline.
 vim.o.scrolloff = 7 -- Number of lines after the cursor when scrolling.
-vim.cmd [[nnoremap ,<space> :nohlsearch<CR>]] -- Disable search result highlighting (, space bar)
+vim.o.cursorline = true -- Light the cursor line
+------------------------------------------------------------------------------------------------------------------------
+-- Hotkeys:
+-- Only hjkl, Hardcore! ;):
+map('', '<up>', ':echoe "Use k"<CR>', {noremap = true, silent = false})
+map('', '<down>', ':echoe "Use j"<CR>', {noremap = true, silent = false})
+map('', '<left>', ':echoe "Use h"<CR>', {noremap = true, silent = false})
+map('', '<right>', ':echoe "Use l"<CR>', {noremap = true, silent = false})
 ------------------------------------------------------------------------------------------------------------------------
 -- Smart Tab:
 vim.o.tabstop = 4 -- The number of spaces by which the tab character appears in the text.
 vim.o.shiftwidth = 4 -- Adjusting the indentation width in the spaces added by the >> and << commands.
+vim.o.softtabstop = 4 -- Number of spaces in Tab.
 vim.o.smarttab = true -- Adding an indent whose width corresponds to shiftwidth.
 vim.o.expandtab = true -- Put Tab with spaces.
-vim.o.softtabstop = 4 -- Number of spaces in Tab.
+-- For JavaScript, Lua, html, text, Markdown, CSS - Set 2 space:
+vim.cmd [[autocmd Filetype javascript,lua,html,text,markdown,css setlocal ts=2 sw=2 sts=2 smarttab expandtab]]
 ------------------------------------------------------------------------------------------------------------------------
 -- Search:
 vim.o.ignorecase = true -- Searching without case-sensitive characters.
@@ -70,34 +81,34 @@ vim.cmd [[menu Encoding.windows-1251 :e ++enc=cp1251 ++ff=unix<cr>]]
 vim.cmd [[menu Encoding.cp866 :e ++enc=cp866 ++ff=unix<cr>]]
 vim.cmd [[menu Encoding.utf-8 :e ++enc=utf8 ++ff=unix<cr>]]
 vim.cmd [[menu Encoding.koi8-u :e ++enc=koi8-u ++ff=unix<cr>]]
-vim.cmd [[map <F12> :emenu Encoding.<TAB>]]
+map('n', '<F12>', ':emenu Encoding.<TAB>', {noremap = true, silent = true})
 ------------------------------------------------------------------------------------------------------------------------
 -- Spelling:
 vim.cmd [[set wildmenu]]
 vim.cmd [[set wcm=<Tab>]]
 vim.cmd [[menu Spell.Spell[RU] :set spell spelllang=ru<cr>]]
 vim.cmd [[menu Spell.Spell[EN] :set spell spelllang=en<cr>]]
-vim.cmd [[map <F11> :emenu Spell.<TAB>]]
+map('n', '<F11>', ':emenu Spell.<TAB>', {noremap = true, silent = true}) --]]
 ------------------------------------------------------------------------------------------------------------------------
---Airline:
-vim.cmd [[let g:airline_theme='dracula']]
-vim.cmd [[let g:airline_powerline_fonts = 1]]
--- Download "Anonymice Nerd Font" (https://www.nerdfonts.com/font-downloads) or set "airline_powerline_fonts = 0".
+-- Lualine.nvim:
+-- Download "Anonymice Nerd Font" (https://www.nerdfonts.com/font-downloads)
+require('lualine').setup()
+------------------------------------------------------------------------------------------------------------------------
+-- Comment.nvim
+-- `gc` - Toggles the region using linewise comment
+-- `gb` - Toggles the region using blockwise comment
+require('Comment').setup()
 ------------------------------------------------------------------------------------------------------------------------
 -- Python-Syntax:
 vim.cmd [[let g:python_highlight_all = 1]]
-------------------------------------------------------------------------------------------------------------------------
--- JavaScript Syntax:
-vim.cmd [[let g:vim_jsx_pretty_colorful_config = 1]]
-vim.cmd [[let g:yats_host_keyword = 1]]
 ------------------------------------------------------------------------------------------------------------------------
 -- NERDTree:
 vim.cmd [[let NERDTreeShowHidden=1]]
 vim.cmd [[let NERDTreeQuitOnOpen=1]]
 vim.cmd [[let NERDTreeNaturalSort=1]]
-vim.cmd [[nmap <F10> :NERDTreeToggle ~/<cr>]]
-vim.cmd [[vmap <F10> <esc>:NERDTreeToggle ~/<cr>]]
-vim.cmd [[imap <F10> <esc>:NERDTreeToggle ~/<cr>]]
+map('n', '<F10>', ':NERDTreeToggle ~/<cr>', {noremap = true, silent = true})
+map('v', '<F10>', '<esc>:NERDTreeToggle ~/<cr>', {noremap = true, silent = true})
+map('i', '<F10>', '<esc>:NERDTreeToggle ~/<cr>', {noremap = true, silent = true})
 ------------------------------------------------------------------------------------------------------------------------
 -- Configuration autocomplete:
 -- Set completeopt to have a better completion experience
@@ -189,8 +200,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
 end
-------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------
+
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 local servers = { 'pyright', 'denols' }

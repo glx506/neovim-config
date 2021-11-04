@@ -9,13 +9,13 @@
 + https://github.com/euclidianAce/BetterLua.vim.git
 + https://github.com/dracula/vim.git
 + https://github.com/preservim/nerdtree.git
-+ https://github.com/ryanoasis/vim-devicons.git
-+ https://github.com/vim-airline/vim-airline.git
 + https://github.com/vim-python/python-syntax.git
++ https://github.com/nvim-lualine/lualine.nvim.git
++ https://github.com/kyazdani42/nvim-web-devicons.git
 + https://github.com/HerringtonDarkholme/yats.vim.git
 + https://github.com/MaxMEllon/vim-jsx-pretty.git
 + https://github.com/jiangmiao/auto-pairs.git
-
++ https://github.com/numToStr/Comment.nvim.git
 ---
 ## Configuration:
 ### Linux (Ubuntu, Debian):
