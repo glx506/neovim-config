@@ -7,7 +7,7 @@
 -- \__, |_/_/\_\____/ \___/ \___/                            --
 --  __/ |                                                    --
 -- |___/                                                     --
--- Last update:03.11.2021                                    --
+-- Last update:08.11.2021                                    --
 -- init.lua configuration file for NeoVIM                    --
 -- Configured for: neovim-qt (Win 10 x64)                    --
 ---------------------------------------------------------------
@@ -47,6 +47,8 @@ map('', '<up>', ':echoe "Use k"<CR>', {noremap = true, silent = false})
 map('', '<down>', ':echoe "Use j"<CR>', {noremap = true, silent = false})
 map('', '<left>', ':echoe "Use h"<CR>', {noremap = true, silent = false})
 map('', '<right>', ':echoe "Use l"<CR>', {noremap = true, silent = false})
+-- Turn off search highlight:
+map('n', ',<Space>', ':nohlsearch<CR>', { noremap = true, silent = true })
 ------------------------------------------------------------------------------------------------------------------------
 -- Smart Tab:
 vim.o.tabstop = 4 -- The number of spaces by which the tab character appears in the text.
@@ -96,6 +98,10 @@ map('n', '<F11>', ':emenu Spell.<TAB>', {noremap = true, silent = true})
 vim.cmd [[let g:airline_theme='dracula']]
 vim.cmd [[let g:airline_powerline_fonts = 1]]
 -- Download "Anonymice Nerd Font" (https://www.nerdfonts.com/font-downloads) or set "airline_powerline_fonts = 0".
+------------------------------------------------------------------------------------------------------------------------
+-- Asociation of files with highlighting:
+-- Asociation of *.log files for syntax highlighting.
+vim.cmd [[au BufRead,BufNewFile *.log set filetype=log]]
 ------------------------------------------------------------------------------------------------------------------------
 -- Python-Syntax:
 vim.cmd [[let g:python_highlight_all = 1]]
