@@ -1,5 +1,4 @@
 # Neovim Config.
----
 ## <a name="dependency">Dependency list:</a>
 + https://github.com/hrsh7th/cmp-nvim-lsp.git
 + https://github.com/L3MON4D3/LuaSnip.git
@@ -16,7 +15,7 @@
 + https://github.com/MaxMEllon/vim-jsx-pretty.git
 + https://github.com/jiangmiao/auto-pairs.git
 + https://github.com/numToStr/Comment.nvim.git
----
+
 ## Configuration:
 ### Linux (Ubuntu, Debian):
 + Neovim:
@@ -54,4 +53,6 @@ $ curl -fsSL https://deno.land/x/install/install.sh | sh
 export DENO_INSTALL="/home/UsenName/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 ```
-
+## Used resources:
++ https://github.com/nanotee/nvim-lua-guide
+---
