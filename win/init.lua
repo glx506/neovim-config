@@ -99,6 +99,11 @@ vim.cmd [[let g:airline_theme='dracula']]
 vim.cmd [[let g:airline_powerline_fonts = 1]]
 -- Download "Anonymice Nerd Font" (https://www.nerdfonts.com/font-downloads) or set "airline_powerline_fonts = 0".
 ------------------------------------------------------------------------------------------------------------------------
+-- Comment.nvim
+-- `gc` - Toggles the region using linewise comment
+-- `gb` - Toggles the region using blockwise comment
+require('Comment').setup()
+------------------------------------------------------------------------------------------------------------------------
 -- Asociation of files with highlighting:
 -- Asociation of *.log files for syntax highlighting.
 vim.cmd [[au BufRead,BufNewFile *.log set filetype=log]]
