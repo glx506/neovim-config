@@ -45,6 +45,8 @@ map('', '<up>', ':echoe "Use k"<CR>', {noremap = true, silent = false})
 map('', '<down>', ':echoe "Use j"<CR>', {noremap = true, silent = false})
 map('', '<left>', ':echoe "Use h"<CR>', {noremap = true, silent = false})
 map('', '<right>', ':echoe "Use l"<CR>', {noremap = true, silent = false})
+-- Turn off search highlight:
+map('n', ',<Space>', ':nohlsearch<CR>', { noremap = true, silent = true })
 ------------------------------------------------------------------------------------------------------------------------
 -- Smart Tab:
 vim.o.tabstop = 4 -- The number of spaces by which the tab character appears in the text.
