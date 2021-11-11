@@ -1,16 +1,18 @@
----------------------------------------------------------------
---       _      _____  ___    __                             --
---      | |    | ____|/ _ \  / /                             --
---  __ _| |_  _| |__ | | | |/ /_                             --
--- / _` | \ \/ /___ \| | | |    \                            --
---| (_| | |>  < ___) | |_| | ( ) |                           --
--- \__, |_/_/\_\____/ \___/ \___/                            --
---  __/ |                                                    --
--- |___/                                                     --
--- Last update:08.11.2021                                    --
--- init.lua configuration file for NeoVIM                    --
--- Configured for: neovim-qt (Win 10 x64)                    --
----------------------------------------------------------------
+--------------------------------------------------------------------
+--                                                                --
+-- 888b    888                  888     888 8888888 888b     d888 --
+-- 8888b   888                  888     888   888   8888b   d8888 --
+-- 88888b  888                  888     888   888   88888b.d88888 --
+-- 888Y88b 888  .d88b.   .d88b. Y88b   d88P   888   888Y88888P888 --
+-- 888 Y88b888 d8P  Y8b d88""88b Y88b d88P    888   888 Y888P 888 --
+-- 888  Y88888 88888888 888  888  Y88o88P     888   888  Y8P  888 --
+-- 888   Y8888 Y8b.     Y88..88P   Y888P      888   888   "   888 --
+-- 888    Y888  "Y8888   "Y88P"     Y8P     8888888 888       888 --
+--                                                                --
+-- Last update:08.11.2021                                         --
+-- init.lua configuration file for NeoVIM                         --
+-- Configured for: neovim-qt (Win 10 x64)                         --
+--------------------------------------------------------------------
 local map = vim.api.nvim_set_keymap
 
 vim.cmd [[set shada="NONE"]] -- Disable shada file.
@@ -94,10 +96,9 @@ vim.cmd [[menu Spell.Spell[RU] :set spell spelllang=ru<cr>]]
 vim.cmd [[menu Spell.Spell[EN] :set spell spelllang=en<cr>]]
 map('n', '<F11>', ':emenu Spell.<TAB>', {noremap = true, silent = true})
 ------------------------------------------------------------------------------------------------------------------------
---Airline:
-vim.cmd [[let g:airline_theme='dracula']]
-vim.cmd [[let g:airline_powerline_fonts = 1]]
--- Download "Anonymice Nerd Font" (https://www.nerdfonts.com/font-downloads) or set "airline_powerline_fonts = 0".
+-- Lualine.nvim:
+-- Download "Anonymice Nerd Font" (https://www.nerdfonts.com/font-downloads)
+require('lualine').setup()
 ------------------------------------------------------------------------------------------------------------------------
 -- Comment.nvim
 -- `gc` - Toggles the region using linewise comment
