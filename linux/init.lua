@@ -1,18 +1,20 @@
----------------------------------------------------------------
---       _      _____  ___    __                             --
---      | |    | ____|/ _ \  / /                             --
---  __ _| |_  _| |__ | | | |/ /_                             --
--- / _` | \ \/ /___ \| | | |    \                            --
---| (_| | |>  < ___) | |_| | ( ) |                           --
--- \__, |_/_/\_\____/ \___/ \___/                            --
---  __/ |                                                    --
--- |___/                                                     --
--- Last update:04.11.2021                                    --
--- init.lua configuration file for NeoVIM                    --
--- Configured for: neovim (Linux x64)                        --
----------------------------------------------------------------
+--------------------------------------------------------------------
+--                                                                --
+-- 888b    888                  888     888 8888888 888b     d888 --
+-- 8888b   888                  888     888   888   8888b   d8888 --
+-- 88888b  888                  888     888   888   88888b.d88888 --
+-- 888Y88b 888  .d88b.   .d88b. Y88b   d88P   888   888Y88888P888 --
+-- 888 Y88b888 d8P  Y8b d88""88b Y88b d88P    888   888 Y888P 888 --
+-- 888  Y88888 88888888 888  888  Y88o88P     888   888  Y8P  888 --
+-- 888   Y8888 Y8b.     Y88..88P   Y888P      888   888   "   888 --
+-- 888    Y888  "Y8888   "Y88P"     Y8P     8888888 888       888 --
+--                                                                --
+-- Last update:12.11.2021                                         --
+-- init.lua configuration file for NeoVIM                         --
+-- Configured for: neovim (Linux x64)                             --
+--------------------------------------------------------------------
 local map = vim.api.nvim_set_keymap
-
+------------------------------------------------------------------------------------------------------------------------
 vim.cmd [[set shada="NONE"]] -- Disable shada file.
 vim.cmd [[set viminfo="NONE"]] -- Disable viminfo file.
 vim.cmd [[set noswapfile]] -- Disable swap.
@@ -90,7 +92,23 @@ vim.cmd [[set wildmenu]]
 vim.cmd [[set wcm=<Tab>]]
 vim.cmd [[menu Spell.Spell[RU] :set spell spelllang=ru<cr>]]
 vim.cmd [[menu Spell.Spell[EN] :set spell spelllang=en<cr>]]
-map('n', '<F11>', ':emenu Spell.<TAB>', {noremap = true, silent = true}) --]]
+map('n', '<F11>', ':emenu Spell.<TAB>', {noremap = true, silent = true})
+------------------------------------------------------------------------------------------------------------------------
+-- NERDTree:
+vim.cmd [[let NERDTreeShowHidden=1]]
+vim.cmd [[let NERDTreeQuitOnOpen=1]]
+vim.cmd [[let NERDTreeNaturalSort=1]]
+map('n', '<F10>', ':NERDTreeToggle ~/<cr>', {noremap = true, silent = true})
+map('v', '<F10>', '<esc>:NERDTreeToggle ~/<cr>', {noremap = true, silent = true})
+map('i', '<F10>', '<esc>:NERDTreeToggle ~/<cr>', {noremap = true, silent = true})
+------------------------------------------------------------------------------------------------------------------------
+-- Help Menu:
+vim.cmd [[set wildmenu]]
+vim.cmd [[set wildmode=longest:full]]
+vim.cmd [[menu Help.NERDTree&[F10] <esc>]]
+vim.cmd [[menu Help.Spelling&[F11] <esc>]]
+vim.cmd [[menu Help.Encoding&[F12] <esc>]]
+map('n', '<F1>', ':emenu Help.<TAB>', {noremap = true, silent = true})
 ------------------------------------------------------------------------------------------------------------------------
 -- Lualine.nvim:
 -- Download "Anonymice Nerd Font" (https://www.nerdfonts.com/font-downloads)
@@ -101,17 +119,14 @@ require('lualine').setup()
 -- `gb` - Toggles the region using blockwise comment
 require('Comment').setup()
 ------------------------------------------------------------------------------------------------------------------------
+-- Asociation of files with highlighting:
+-- Asociation of *.log files for syntax highlighting.
+vim.cmd [[au BufRead,BufNewFile *.log set filetype=log]]
+------------------------------------------------------------------------------------------------------------------------
 -- Python-Syntax:
 vim.cmd [[let g:python_highlight_all = 1]]
 ------------------------------------------------------------------------------------------------------------------------
--- NERDTree:
-vim.cmd [[let NERDTreeShowHidden=1]]
-vim.cmd [[let NERDTreeQuitOnOpen=1]]
-vim.cmd [[let NERDTreeNaturalSort=1]]
-map('n', '<F10>', ':NERDTreeToggle ~/<cr>', {noremap = true, silent = true})
-map('v', '<F10>', '<esc>:NERDTreeToggle ~/<cr>', {noremap = true, silent = true})
-map('i', '<F10>', '<esc>:NERDTreeToggle ~/<cr>', {noremap = true, silent = true})
-------------------------------------------------------------------------------------------------------------------------
+
 -- Configuration autocomplete:
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -214,4 +229,58 @@ for _, lsp in ipairs(servers) do
     }
   }
 end
+------------------------------------------------------------------------------------------------------------------------
+-- Set barbar's options:
+vim.g.bufferline = {
+  -- Enable/disable animations
+  animation = true,
+  -- Enable/disable auto-hiding the tab bar when there is a single buffer
+  auto_hide = false,
+  -- Enable/disable current/total tabpages indicator (top right corner)
+  tabpages = true,
+  -- Enable/disable close button
+  closable = true,
+  -- Enables/disable clickable tabs
+  --  - left-click: go to buffer
+  --  - middle-click: delete buffer
+  clickable = true,
+  -- Excludes buffers from the tabline
+  exclude_ft = {'javascript'},
+  exclude_name = {'package.json'},
+  -- Enable/disable icons
+  -- if set to 'numbers', will show buffer index in the tabline
+  -- if set to 'both', will show buffer index and icons in the tabline
+  icons = true,
+  -- If set, the icon color will follow its corresponding buffer
+  -- highlight group. By default, the Buffer*Icon group is linked to the
+  -- Buffer* group (see Highlighting below). Otherwise, it will take its
+  -- default value as defined by devicons.
+  icon_custom_colors = false,
+  -- Configure icons on the bufferline.
+  icon_separator_active = '|',
+  icon_separator_inactive = '|',
+  icon_close_tab = '',
+  icon_close_tab_modified = '•',
+  icon_pinned = '車',
+  -- If true, new buffers will be inserted at the start/end of the list.
+  -- Default is to insert after current buffer.
+  insert_at_end = false,
+  insert_at_start = false,
+  -- Sets the maximum padding width with which to surround each tab
+  maximum_padding = 1,
+  -- Sets the maximum buffer name length.
+  maximum_length = 30,
+  -- If set, the letters for each buffer in buffer-pick mode will be
+  -- assigned based on their name. Otherwise or in case all letters are
+  -- already assigned, the behavior is to assign letters in order of
+  -- usability (see order below)
+  semantic_letters = true,
+  -- New buffer letters are assigned in this order. This order is
+  -- optimal for the qwerty keyboard layout but might need adjustement
+  -- for other layouts.
+  letters = 'asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP',
+  -- Sets the name of unnamed buffers. By default format is "[Buffer X]"
+  -- where X is the buffer number. But only a static string is accepted here.
+  no_name_title = nil,
+}
 ------------------------------------------------------------------------------------------------------------------------
