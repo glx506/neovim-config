@@ -55,6 +55,24 @@ $ curl -fsSL https://deno.land/x/install/install.sh | sh
 export DENO_INSTALL="/home/UsenName/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 ```
+### Windows:
++ Config:
+```cmd
+md C:\Users\%username%\AppData\Local\nvim
+md C:\Users\%username%\AppData\Local\nvim\autoload && md C:\Users\%username%\AppData\Local\nvim\bundle
+copy init.lua C:\Users\%username%\AppData\Local\nvim
+curl -LSso C:\Users\%username%\AppData\Local\nvim\autoload\pathogen.vim https://tpo.pe/pathogen.vim
+cd C:\Users\%username%\AppData\Local\nvim\bundle
+git clone *Dependency list
+```
++ [*Dependency list](#dependency)
++ Pyright (Python LSP Server):
+  + Install Node.JS
+```cmd
+npm install --global pyright
+```
++ Denols (JavaScript LSP Server):
+https://github.com/denoland/deno/releases/latest
 ## Used resources:
 + https://github.com/nanotee/nvim-lua-guide
 ---
