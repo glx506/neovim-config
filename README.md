@@ -15,6 +15,8 @@
 + https://github.com/MaxMEllon/vim-jsx-pretty.git
 + https://github.com/jiangmiao/auto-pairs.git
 + https://github.com/numToStr/Comment.nvim.git
++ https://github.com/romgrk/barbar.nvim.git
+
 
 ## Configuration:
 ### Linux (Ubuntu, Debian):
