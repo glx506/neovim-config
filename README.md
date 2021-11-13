@@ -2,6 +2,7 @@
 ## <a name="dependency">Dependency list:</a>
 + https://github.com/hrsh7th/cmp-nvim-lsp.git
 + https://github.com/L3MON4D3/LuaSnip.git
++ https://github.com/neovim/nvim-lspconfig.git
 + https://github.com/hrsh7th/nvim-cmp.git
 + https://github.com/saadparwaiz1/cmp_luasnip.git
 + https://github.com/yuezk/vim-js.git
