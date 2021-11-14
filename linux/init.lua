@@ -9,7 +9,7 @@
 -- 888   Y8888 Y8b.     Y88..88P   Y888P      888   888   "   888 --
 -- 888    Y888  "Y8888   "Y88P"     Y8P     8888888 888       888 --
 --                                                                --
--- Last update:12.11.2021                                         --
+-- Last update:13.11.2021                                         --
 -- init.lua configuration file for NeoVIM                         --
 -- Configured for: neovim (Linux x64)                             --
 --------------------------------------------------------------------
@@ -119,10 +119,6 @@ require('lualine').setup()
 -- `gb` - Toggles the region using blockwise comment
 require('Comment').setup()
 ------------------------------------------------------------------------------------------------------------------------
--- Asociation of files with highlighting:
--- Asociation of *.log files for syntax highlighting.
-vim.cmd [[au BufRead,BufNewFile *.log set filetype=log]]
-------------------------------------------------------------------------------------------------------------------------
 -- Python-Syntax:
 vim.cmd [[let g:python_highlight_all = 1]]
 ------------------------------------------------------------------------------------------------------------------------
@@ -183,7 +179,6 @@ cmp.setup {
 ------------------------------------------------------------------------------------------------------------------------
 -- Configuration LSP:
 local nvim_lsp = require('lspconfig')
-
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
