@@ -9,7 +9,7 @@
 -- 888   Y8888 Y8b.     Y88..88P   Y888P      888   888   "   888 --
 -- 888    Y888  "Y8888   "Y88P"     Y8P     8888888 888       888 --
 --                                                                --
--- Last update:13.11.2021                                         --
+-- Last update:15.11.2021                                         --
 -- init.lua configuration file for NeoVIM                         --
 -- Configured for: neovim (Linux x64)                             --
 --------------------------------------------------------------------
@@ -30,6 +30,7 @@ vim.o.wrap = true -- Dynamic transfer of long strings.
 vim.o.textwidth = 120 -- String length 120 characters.
 vim.o.mouse = "a" -- Mouse enable.
 vim.o.number = true -- Lines enumerate.
+vim.o.relativenumber = true -- Ralative number.
 vim.o.colorcolumn = "121"  -- Separator at 120 characters.
 vim.o.wrap = true -- Transferring whole words.
 vim.o.keymap = "russian-jcukenwin"  -- Switching the layout Ctrl-^.
@@ -94,18 +95,16 @@ vim.cmd [[menu Spell.Spell[RU] :set spell spelllang=ru<cr>]]
 vim.cmd [[menu Spell.Spell[EN] :set spell spelllang=en<cr>]]
 map('n', '<F11>', ':emenu Spell.<TAB>', {noremap = true, silent = true})
 ------------------------------------------------------------------------------------------------------------------------
--- NERDTree:
-vim.cmd [[let NERDTreeShowHidden=1]]
-vim.cmd [[let NERDTreeQuitOnOpen=1]]
-vim.cmd [[let NERDTreeNaturalSort=1]]
-map('n', '<F10>', ':NERDTreeToggle ~/<cr>', {noremap = true, silent = true})
-map('v', '<F10>', '<esc>:NERDTreeToggle ~/<cr>', {noremap = true, silent = true})
-map('i', '<F10>', '<esc>:NERDTreeToggle ~/<cr>', {noremap = true, silent = true})
+-- NvimTree:
+require('nvim-tree').setup()
+map('n', '<F10>', ':NvimTreeToggle <cr>', {noremap = true, silent = true})
+map('v', '<F10>', '<esc>:NvimTreeToggle <cr>', {noremap = true, silent = true})
+map('i', '<F10>', '<esc>:NvimTreeToggle <cr>', {noremap = true, silent = true})
 ------------------------------------------------------------------------------------------------------------------------
 -- Help Menu:
 vim.cmd [[set wildmenu]]
 vim.cmd [[set wildmode=longest:full]]
-vim.cmd [[menu Help.NERDTree&[F10] <esc>]]
+vim.cmd [[menu Help.NvimTree&[F10] <esc>]]
 vim.cmd [[menu Help.Spelling&[F11] <esc>]]
 vim.cmd [[menu Help.Encoding&[F12] <esc>]]
 map('n', '<F1>', ':emenu Help.<TAB>', {noremap = true, silent = true})
@@ -212,7 +211,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
 end
-
+------------------------------------------------------------------------------------------------------------------------
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 local servers = { 'pyright', 'denols' }

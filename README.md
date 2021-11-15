@@ -8,7 +8,7 @@
 + https://github.com/yuezk/vim-js.git
 + https://github.com/euclidianAce/BetterLua.vim.git
 + https://github.com/dracula/vim.git
-+ https://github.com/preservim/nerdtree.git
++ https://github.com/kyazdani42/nvim-tree.lua.git
 + https://github.com/vim-python/python-syntax.git
 + https://github.com/nvim-lualine/lualine.nvim.git
 + https://github.com/kyazdani42/nvim-web-devicons.git
