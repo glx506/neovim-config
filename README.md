@@ -33,8 +33,8 @@ $ nvim
 ```
 + Config:
 ```bash
-$ md ~/.config/nvim
-$ md -p ~/.config/nvim/autoload ~/.config/nvim/bundle
+$ mkdir ~/.config/nvim
+$ mkdir -p ~/.config/nvim/autoload ~/.config/nvim/bundle
 $ curl -LSso ~/.config/nvim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 $ mv init.lua ~/.config/nvim
 $ cd ~/.config/nvim/bundle
