@@ -77,4 +77,5 @@ npm install --global pyright
 https://github.com/denoland/deno/releases/latest
 ## Used resources:
 + https://github.com/nanotee/nvim-lua-guide
++ https://github.com/rockerBOO/awesome-neovim
 ---
