@@ -51,9 +51,9 @@ $ npm install --global pyright
 + Denols (JavaScript LSP Server):
 ```bash
 $ curl -fsSL https://deno.land/x/install/install.sh | sh
-# If you are using zsh + oh-my-zsh add to .zshrc:
 ```
 ```vim
+# If you are using zsh + oh-my-zsh add to .zshrc:
 export DENO_INSTALL="/home/UsenName/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 ```
