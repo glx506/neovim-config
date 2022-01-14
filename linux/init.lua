@@ -30,7 +30,6 @@ vim.o.wrap = true -- Dynamic transfer of long strings.
 vim.o.textwidth = 120 -- String length 120 characters.
 vim.o.mouse = "a" -- Mouse enable.
 vim.o.number = true -- Lines enumerate.
-vim.o.relativenumber = true -- Ralative number.
 vim.o.colorcolumn = "121"  -- Separator at 120 characters.
 vim.o.wrap = true -- Transferring whole words.
 vim.o.keymap = "russian-jcukenwin"  -- Switching the layout Ctrl-^.
@@ -41,6 +40,10 @@ vim.cmd [[set mps+=<:>]] -- Matching brackets highlighting <>.
 vim.o.showtabline = 0 -- Disable tabline.
 vim.o.scrolloff = 7 -- Number of lines after the cursor when scrolling.
 vim.o.cursorline = true -- Light the cursor line
+-- Cursor settings.
+vim.cmd [[set termguicolors]]
+vim.cmd [[set guicursor=n-c-v:block-Cursor/Cursor-blinkon0]]
+vim.cmd [[set guicursor+=i-ci:ver1-Cursor/Cursor-blinkwait300-blinkon200-blinkoff150]]
 ------------------------------------------------------------------------------------------------------------------------
 -- Hotkeys:
 -- Only hjkl, Hardcore! ;):
@@ -206,7 +209,7 @@ end
 ------------------------------------------------------------------------------------------------------------------------
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'denols' }
+local servers = { 'pyright', 'denols', 'rust_analyzer' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
