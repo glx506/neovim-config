@@ -9,7 +9,7 @@
 -- 888   Y8888 Y8b.     Y88..88P   Y888P      888   888   "   888 --
 -- 888    Y888  "Y8888   "Y88P"     Y8P     8888888 888       888 --
 --                                                                --
--- Last update:18.11.2021                                         --
+-- Last update:01.02.2022                                         --
 -- init.lua configuration file for NeoVIM                         --
 -- Configured for: neovim-qt/neovim (Win 10 x64)                  --
 --------------------------------------------------------------------
@@ -94,6 +94,7 @@ vim.cmd [[set wildmenu]]
 vim.cmd [[set wcm=<Tab>]]
 vim.cmd [[menu Spell.Spell[RU] :set spell spelllang=ru<cr>]]
 vim.cmd [[menu Spell.Spell[EN] :set spell spelllang=en<cr>]]
+vim.cmd [[menu Spell.NoSpell :set spell nospell<cr>]]
 map('n', '<F11>', ':emenu Spell.<TAB>', {noremap = true, silent = true})
 ------------------------------------------------------------------------------------------------------------------------
 -- NvimTree:
@@ -221,7 +222,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'denols' }
+local servers = { 'pyright' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
