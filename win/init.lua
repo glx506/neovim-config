@@ -9,7 +9,7 @@
 -- 888   Y8888 Y8b.     Y88..88P   Y888P      888   888   "   888 --
 -- 888    Y888  "Y8888   "Y88P"     Y8P     8888888 888       888 --
 --                                                                --
--- Last update:01.02.2022                                         --
+-- Last update:06.04.2022                                         --
 -- init.lua configuration file for NeoVIM                         --
 -- Configured for: neovim-qt/neovim (Win 10 x64)                  --
 --------------------------------------------------------------------
@@ -25,14 +25,11 @@ vim.cmd [[execute pathogen#infect()]]
 -- Color Scheme:
 vim.cmd [[colorscheme dracula]]  -- Dracula (https://github.com/dracula/vim.git).
 ------------------------------------------------------------------------------------------------------------------------
--- General settings:
 vim.o.wrap = true -- Dynamic transfer of long strings.
 vim.o.textwidth = 120 -- String length 120 characters.
 vim.o.mouse = "a" -- Mouse enable.
 vim.o.number = true -- Lines enumerate.
-vim.o.relativenumber = true -- Ralative number.
 vim.o.colorcolumn = "121"  -- Separator at 120 characters.
-vim.o.wrap = true -- Transferring whole words.
 vim.o.keymap = "russian-jcukenwin"  -- Switching the layout Ctrl-^.
 vim.o.iminsert = 0  -- Default English layout.
 vim.o.imsearch = 0  -- The default English layout for the search line and command input.
@@ -40,7 +37,6 @@ vim.o.showmatch = true -- Highlight matching brackets (), [] and {}.
 vim.cmd [[set mps+=<:>]] -- Matching brackets highlighting <>.
 vim.o.showtabline = 0 -- Disable tabline.
 vim.o.scrolloff = 7 -- Number of lines after the cursor when scrolling.
-map('!', '<S-Insert>', '<C-R>+', {noremap = true, silent = true}) -- Shift+Insert (Insert and Command-line).
 vim.o.cursorline = true -- Light the cursor line
 ------------------------------------------------------------------------------------------------------------------------
 -- Hotkeys:
