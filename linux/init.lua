@@ -9,7 +9,7 @@
 -- 888   Y8888 Y8b.     Y88..88P   Y888P      888   888   "   888 --
 -- 888    Y888  "Y8888   "Y88P"     Y8P     8888888 888       888 --
 --                                                                --
--- Last update:15.11.2021                                         --
+-- Last update:06.04.2022                                         --
 -- init.lua configuration file for NeoVIM                         --
 -- Configured for: neovim (Linux x64)                             --
 --------------------------------------------------------------------
