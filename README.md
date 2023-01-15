@@ -79,3 +79,6 @@ https://github.com/denoland/deno/releases/latest
 + https://github.com/nanotee/nvim-lua-guide
 + https://github.com/rockerBOO/awesome-neovim
 ---
+## Fonts:
++ https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/AnonymousPro.zip
+---
