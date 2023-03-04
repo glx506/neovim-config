@@ -61,7 +61,8 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 + Config:
 ```cmd
 md C:\Users\%username%\AppData\Local\nvim
-md C:\Users\%username%\AppData\Local\nvim\autoload && md C:\Users\%username%\AppData\Local\nvim\bundle
+md C:\Users\%username%\AppData\Local\nvim\autoload
+md C:\Users\%username%\AppData\Local\nvim\bundle
 copy init.lua C:\Users\%username%\AppData\Local\nvim
 curl -LSso C:\Users\%username%\AppData\Local\nvim\autoload\pathogen.vim https://tpo.pe/pathogen.vim
 cd C:\Users\%username%\AppData\Local\nvim\bundle
