@@ -1,22 +1,11 @@
 # Neovim Config.
 ## <a name="dependency">Dependency list:</a>
-+ https://github.com/hrsh7th/cmp-nvim-lsp.git
-+ https://github.com/L3MON4D3/LuaSnip.git
-+ https://github.com/neovim/nvim-lspconfig.git
-+ https://github.com/hrsh7th/nvim-cmp.git
-+ https://github.com/saadparwaiz1/cmp_luasnip.git
-+ https://github.com/yuezk/vim-js.git
-+ https://github.com/euclidianAce/BetterLua.vim.git
-+ https://github.com/dracula/vim.git
-+ https://github.com/kyazdani42/nvim-tree.lua.git
-+ https://github.com/vim-python/python-syntax.git
-+ https://github.com/nvim-lualine/lualine.nvim.git
-+ https://github.com/kyazdani42/nvim-web-devicons.git
-+ https://github.com/HerringtonDarkholme/yats.vim.git
-+ https://github.com/MaxMEllon/vim-jsx-pretty.git
 + https://github.com/jiangmiao/auto-pairs.git
-+ https://github.com/numToStr/Comment.nvim.git
-+ https://github.com/romgrk/barbar.nvim.git
++ https://github.com/benisued/BetterLua.git
++ https://github.com/dracula/vim.git
++ https://github.com/nvim-lualine/lualine.nvim.git
++ https://github.com/nvim-treesitter/nvim-treesitter.git
++ https://github.com/nvim-tree/nvim-web-devicons.git
 
 
 ## Configuration:
